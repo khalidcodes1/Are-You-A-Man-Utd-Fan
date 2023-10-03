@@ -1,0 +1,38 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --hue-main-bg-color: 200;
+    --hue-wrong: 0;
+    --hue-correct: 100;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    --hue: var(--hue-main-bg-color);
+    background-color: hsl(var(--hue), 80%, 25%);
+}
+body.correct{
+    --hue:var(var(--hue-correct));
+}
+
+body.wrong{
+    --hue:var(var(--hue-wrong));
+}
+
+.container{
+    width: 600px;
+    max-width: 80%;
+    background-color: beige;
+    border-radius: 10px;
+    padding: 10px;
+    
+}
