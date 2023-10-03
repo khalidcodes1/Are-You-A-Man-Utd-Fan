@@ -4,7 +4,7 @@
 }
 
 :root {
-    --hue-main-bg-color: 200;
+    --hue-main-bg-color: 500;
     --hue-wrong: 0;
     --hue-correct: 100;
 }
@@ -31,7 +31,7 @@ body.wrong{
 .container{
     width: 600px;
     max-width: 80%;
-    background-color: beige;
+    background-color: yellow;
     border-radius: 10px;
     padding: 10px;
 }
