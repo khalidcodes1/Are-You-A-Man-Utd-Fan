@@ -34,5 +34,11 @@ body.wrong{
     background-color: beige;
     border-radius: 10px;
     padding: 10px;
-    
+}
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin: 15px 0;
 }
