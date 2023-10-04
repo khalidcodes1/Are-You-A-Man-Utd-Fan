@@ -1,6 +1,7 @@
 let beginButton = document.getElementById('begin-btn');
 let qstnContainer = document.getElementById('qstn-container');
-
+let qstnElement = document.getElementById('question');
+let answerBtnElement = document.getElementById('answer-btns');
 let random, currentIndex;
 
 
@@ -13,14 +14,22 @@ function beginGame() {
     console.log('start')
     beginButton.classList.add('hide')
     random = questions.sort(() => Math.random() - 0.5)
+    currentIndex = 0
     qstnContainer.classList.remove('hide')
     nextQuestion()
 
 }
 
 function nextQuestion() {
+    showQuestion(random[currentIndex])
 
 }
+ 
+function showQuestion(question) {
+    qstnElement.innerText = question.question
+
+}
+
 
 function answerSelect() {
 
