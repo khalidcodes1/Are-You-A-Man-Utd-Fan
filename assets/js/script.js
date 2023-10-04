@@ -8,6 +8,7 @@ beginButton.addEventListener('click', beginGame);
 
 function beginGame() {
     console.log('start')
+    beginButton.classList.add('hide')
 
 }
 
