@@ -27,6 +27,11 @@ function nextQuestion() {
  
 function showQuestion(question) {
     qstnElement.innerText = question.question
+    question.answers.forEach(answer => {
+        let button = document.createElement('button')
+        button.innerText = answer.text
+        button.classList.add('btn')
+    })
 
 }
 
