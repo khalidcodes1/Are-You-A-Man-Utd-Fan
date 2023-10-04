@@ -1,6 +1,8 @@
 let beginButton = document.getElementById('begin-btn');
 let qstnContainer = document.getElementById('qstn-container');
 
+let random, currentIndex;
+
 
 
 beginButton.addEventListener('click', beginGame);
@@ -10,6 +12,7 @@ beginButton.addEventListener('click', beginGame);
 function beginGame() {
     console.log('start')
     beginButton.classList.add('hide')
+    random = questions.sort(() => Math.random() - 0.5)
     qstnContainer.classList.remove('hide')
     nextQuestion()
 
