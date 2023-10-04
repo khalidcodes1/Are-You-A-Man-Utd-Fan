@@ -1,4 +1,5 @@
 let beginButton = document.getElementById('begin-btn');
+let nextButton = document.getElementById('next-btn');
 let qstnContainer = document.getElementById('qstn-container');
 let qstnElement = document.getElementById('question');
 let answerBtnElement = document.getElementById('answer-btns');
@@ -35,7 +36,17 @@ function showQuestion(question) {
             button.dataset.correct = answer.correct
         }
         button.addEventListener('click', answerSelect);
+        answerBtnElement.appendChild(button);
     })
+
+}
+
+function reset() {
+    nextButton.classList.add('hide')
+    while (answerBtnElement.firstChild) {
+        answerBtnElement.removeChild
+        (answerBtnElement.firstChild)
+    }
 
 }
 
