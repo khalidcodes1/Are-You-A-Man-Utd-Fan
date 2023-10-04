@@ -1,4 +1,5 @@
 let beginButton = document.getElementById('begin-btn');
+let qstnContainer = document.getElementById('qstn-container');
 
 
 
