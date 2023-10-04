@@ -7,6 +7,7 @@ beginButton.addEventListener('click', beginGame);
 
 
 function beginGame() {
+    console.log('start')
 
 }
 
