@@ -22,11 +22,13 @@ function beginGame() {
 }
 
 function nextQuestion() {
+    reset()
     showQuestion(random[currentIndex])
 
 }
  
 function showQuestion(question) {
+    nextButton.classList.remove('hide')
     qstnElement.innerText = question.question
     question.answers.forEach(answer => {
         let button = document.createElement('button')
@@ -42,7 +44,7 @@ function showQuestion(question) {
 }
 
 function reset() {
-    nextButton.classList.add('hide')
+    
     while (answerBtnElement.firstChild) {
         answerBtnElement.removeChild
         (answerBtnElement.firstChild)
