@@ -53,9 +53,31 @@ function reset() {
 }
 
 
-function answerSelect() {
+function answerSelect(e) {
+    let selected = e.target
+    let correct = selected.dataset.correct
+    setStatusClass(document.body, correct)
+    Array.from(answerBtnElement.children).forEach(button => {
+        setStatusClass(button, button.dataset.correct)
+    })
 
 }
+
+function setStatusClass(element, correct) {
+    clearStatusClass(element)
+    if (correct) {
+        element.classList.add('correct')
+    } else {
+        element.classList.add('wrong')
+    }
+}
+
+function clearStatusClass(element) {
+    element.classList.remove('correct')
+    element.classList.remove('wrong')
+}
+
+
 
 let questions = [
     {
@@ -90,7 +112,7 @@ let questions = [
         ]
     },
     {
-        question: "Who is/was Man Utd most successful manager ever?",
+        question: "Who is/was Man Utd's most successful manager ever?",
         answers:[
             {text: 'Sir Matt Busby', correct: false},
             {text: 'David Moyes', correct: false},
