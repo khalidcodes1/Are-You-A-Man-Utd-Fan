@@ -8,6 +8,10 @@ let random, currentIndex;
 
 
 beginButton.addEventListener('click', beginGame);
+nextButton.addEventListener('click', () => {
+    currentIndex++
+    nextQuestion()
+})
 
 
 
@@ -76,6 +80,8 @@ function clearStatusClass(element) {
     element.classList.remove('correct')
     element.classList.remove('wrong')
 }
+
+nextButton.classList.remove('hide')
 
 
 
