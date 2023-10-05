@@ -1,17 +1,18 @@
-*, *::before, *::after {
-    box-sizing: border-box;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
 :root {
     --hue-main-bg-color: 500;
     --hue-wrong: 0;
     --hue-correct: 100;
 }
-
-body {
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding: 0;
     margin: 0;
+    
+}
+
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,7 +53,7 @@ body.wrong{
 }
 
 .btn:hover{
-    border-color: red;
+    border-color:  hsl(140, 96%, 18%);
 }
 
 .btn.correct{
