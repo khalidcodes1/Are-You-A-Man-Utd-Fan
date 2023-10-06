@@ -49,6 +49,14 @@ function nextQuestion() {
     numberOfQuestion++
     numberOfQuestionContainer.innerText = numberOfQuestion
     }
+    if (currentIndex === 10) {
+        let restartButton = document.getElementById('restart-button')
+        restartButton.classList.remove('hide')
+        nextButton.classList.add('hide')
+
+
+    
+    }
 
 }
  
@@ -117,8 +125,9 @@ function restartQuiz () {
     scoreElement.innerText = score;
     scoreContainer.classList.add('hide')
     beginButton.classList.remove('hide')
-    let restartButton = document.createElement('restart-button')
-    restartButton.classList.remove('hide')
+    nextButton.classList.add('hide')
+    
+    
     reset();
 }
 
