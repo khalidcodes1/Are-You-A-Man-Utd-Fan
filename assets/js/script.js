@@ -7,9 +7,14 @@ let random, currentIndex;
 let  numberOfQuestion = 0
 let score = 0 
 const numberOfQuestionMainContainer = document.getElementById('number-of-qtsn-main-container')
+const scoreContainer = document.getElementById('score-container')
+const scoreElement = document.getElementById('score')
+const restartButton = document.getElementById('restart-button')
 
 
 const numberOfQuestionContainer = document.getElementById('number-of-qstn')
+
+restartButton.addEventListener('click', restartQuiz)
 
 
 
@@ -18,6 +23,8 @@ nextButton.addEventListener('click', () => {
     currentIndex++
     nextQuestion()
 })
+
+
 
 
 
@@ -35,7 +42,7 @@ function beginGame() {
 
 function nextQuestion() {
     reset()
-    if (numberOfQuestion > 10) {
+    if (numberOfQuestion >= 10) {
         showResults()
     } else {
         showQuestion(random[currentIndex])
@@ -80,6 +87,9 @@ function answerSelect(e) {
     })
 
 }
+    
+
+
 
 
 
@@ -98,6 +108,25 @@ function clearStatusClass(element) {
     element.classList.remove('correct')
     element.classList.remove('wrong')
 }
+
+function restartQuiz () {
+    currentIndex = 0
+    score = 0 
+    numberOfQuestion = 0
+    numberOfQuestionContainer.innerText = numberOfQuestion;
+    scoreElement.innerText = score;
+    scoreContainer.classList.add('hide')
+    beginButton.classList.remove('hide')
+    let restartButton = document.createElement('restart-button')
+    restartButton.classList.remove('hide')
+    reset();
+}
+
+
+
+
+
+
 
 
 
@@ -128,7 +157,7 @@ let questions = [
             {text: 'George Best', correct: false},
             {text: 'Eric Cantona', correct: false},
             {text: 'Denis Law', correct: false},
-            {text: 'Sir Bobby Charlton', correct: true}
+            {text: 'Wayne Rooney', correct: true}
         ]
     },
     {
@@ -162,7 +191,7 @@ let questions = [
         question: "Who is the current manager of Manchester United (as of 2023)?",
         answers:[
             {text: 'Sir Alex Ferguson', correct: false},
-            {text: 'Ole Gunnar Solskjaer', correct: true},
+            {text: 'Erik Ten Hag', correct: true},
             {text: 'Jose Mourinho', correct: false},
             {text: 'Jurgen Klopp', correct: false}
         ]
@@ -206,10 +235,10 @@ let questions = [
     {
         question: "Who is Manchester United's most expensive signing of all time (as of 2023)?",
         answers:[
-            {text: 'Harry Maguire', correct: false},
+            {text: 'Harry Maguire', correct: true},
             {text: 'Bruno Fernandes', correct: false},
             {text: 'Jadon Sancho', correct: false},
-            {text: 'Cristiano Ronaldo', correct: true}
+            {text: 'Antony', correct: false}
         ]
     },
     {
@@ -233,10 +262,10 @@ let questions = [
     {
         question: "Who is the longest-serving captain in Manchester United's history?",
         answers:[
-            {text: 'Roy Keane', correct: true},
+            {text: 'Roy Keane', correct: false},
             {text: 'Nemanja Vidic', correct: false},
             {text: 'Steve Bruce', correct: false},
-            {text: 'Bryan Robson', correct: false}
+            {text: 'Bryan Robson', correct: true}
         ]
     },
     {
@@ -244,8 +273,8 @@ let questions = [
         answers:[
             {text: '1', correct: false},
             {text: '2', correct: false},
-            {text: '3', correct: false},
-            {text: '4', correct: true}
+            {text: '3', correct: true},
+            {text: '4', correct: false}
         ]
     },
     {
