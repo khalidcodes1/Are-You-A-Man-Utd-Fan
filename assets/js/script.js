@@ -42,7 +42,7 @@ function beginGame() {
 
 function nextQuestion() {
     reset()
-    if (numberOfQuestion >= 10) {
+    if (currentIndex >= 10) {
         showResults()
     } else {
         showQuestion(random[currentIndex])
@@ -50,14 +50,19 @@ function nextQuestion() {
     numberOfQuestionContainer.innerText = numberOfQuestion
     }
     if (currentIndex === 10) {
-        let restartButton = document.getElementById('restart-button')
-        restartButton.classList.remove('hide')
+        let scoreContainer = document.getElementById('score-container')
+        scoreContainer.classList.remove('hide')
         nextButton.classList.add('hide')
 
 
     
     }
 
+
+}
+
+function showResults() {
+    
 }
  
 function showQuestion(question) {
