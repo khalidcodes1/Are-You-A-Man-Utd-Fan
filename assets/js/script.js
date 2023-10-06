@@ -1,3 +1,4 @@
+let doesNxtButtonEventListener = false
 const beginButton = document.getElementById('begin-btn');
 const nextButton = document.getElementById('next-btn');
 const qstnContainer = document.getElementById('qstn-container');
@@ -21,10 +22,10 @@ restartButton.addEventListener('click', restartQuiz)
 
 
 beginButton.addEventListener('click', beginGame);
-nextButton.addEventListener('click', () => {
-    currentIndex++
-    nextQuestion()
-})
+// nextButton.addEventListener('click', () => {
+//     currentIndex++
+//     nextQuestion()
+// })
 
 
 
@@ -85,6 +86,11 @@ function showQuestion(question) {
         button.addEventListener('click', answerSelect)
         answerBtnElement.appendChild(button);
     })
+    if (doesNxtButtonEventListener) {
+        nextButton.removeEventListener('click' ,answerSelect)
+        doesNxtButtonEventListener = false
+    }
+    
 
 }
 
@@ -108,6 +114,14 @@ function answerSelect(e) {
         setStatusClass(button, button.dataset.correct)
         button.removeEventListener('click', answerSelect)
     })
+    nextButton.addEventListener('click', () => {
+        currentIndex++
+        nextQuestion()
+    })
+    if (doesNxtButtonEventListener) {
+        nextButton.removeEventListener('click')
+    }
+    doesNxtButtonEventListener = true
 
 }
     
