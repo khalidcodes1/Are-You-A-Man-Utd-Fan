@@ -3,6 +3,8 @@ const nextButton = document.getElementById('next-btn');
 const qstnContainer = document.getElementById('qstn-container');
 const qstnElement = document.getElementById('question');
 const answerBtnElement = document.getElementById('answer-btns');
+const qstnNumber = document.getElementById('number-of-qtsn-main-container')
+const endScore = document.getElementById('score')
 let random, currentIndex;
 let  numberOfQuestion = 0
 let score = 0 
@@ -41,7 +43,7 @@ function beginGame() {
 }
 
 function nextQuestion() {
-    reset()
+    resetQuestions()
     if (currentIndex >= 10) {
         showResults()
     } else {
@@ -49,19 +51,24 @@ function nextQuestion() {
     numberOfQuestion++
     numberOfQuestionContainer.innerText = numberOfQuestion
     }
-    if (currentIndex === 10) {
-        let scoreContainer = document.getElementById('score-container')
-        scoreContainer.classList.remove('hide')
-        nextButton.classList.add('hide')
-
-
     
-    }
 
 
 }
 
 function showResults() {
+    let scoreContainer = document.getElementById('score-container')
+        scoreContainer.classList.remove('hide')
+        nextButton.classList.add('hide')
+        qstnContainer.classList.add('hide')
+        nextButton.classList.add('hide')
+        qstnNumber.classList.add('hide')
+        endScore.innerText = score;
+
+
+
+
+
     
 }
  
@@ -75,13 +82,13 @@ function showQuestion(question) {
         if (answer.correct) {
             button.dataset.correct = answer.correct
         }
-        button.addEventListener('click', answerSelect);
+        button.addEventListener('click', answerSelect)
         answerBtnElement.appendChild(button);
     })
 
 }
 
-function reset() {
+function resetQuestions() {
     
     while (answerBtnElement.firstChild) {
         answerBtnElement.removeChild
@@ -94,9 +101,12 @@ function reset() {
 function answerSelect(e) {
     let selected = e.target
     let correct = selected.dataset.correct
-    setStatusClass(document.body, correct)
+    if (correct) {
+        score++
+    }
     Array.from(answerBtnElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
+        button.removeEventListener('click', answerSelect)
     })
 
 }
@@ -110,7 +120,6 @@ function setStatusClass(element, correct) {
     clearStatusClass(element)
     if (correct) {
         element.classList.add('correct')
-        score++
         console.log('score', score)
     } else {
         element.classList.add('wrong')
@@ -130,10 +139,11 @@ function restartQuiz () {
     scoreElement.innerText = score;
     scoreContainer.classList.add('hide')
     beginButton.classList.remove('hide')
-    nextButton.classList.add('hide')
+  
+
     
     
-    reset();
+    resetQuestions();
 }
 
 
