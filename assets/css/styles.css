@@ -45,6 +45,11 @@ header {
     font-size: 2rem;
 }
 
+.paragraph {
+    margin: 15px;
+}
+
+
 footer {
     width: 100%;
     text-align: center;

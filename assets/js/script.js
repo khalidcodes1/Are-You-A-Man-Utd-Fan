@@ -1,3 +1,5 @@
+/*jshint esversion:8 */ 
+
 const beginButton = document.getElementById('begin-btn');
 const nextButton = document.getElementById('next-btn');
 const qstnContainer = document.getElementById('qstn-container');
@@ -18,9 +20,11 @@ const numberOfQuestionContainer = document.getElementById('number-of-qstn')
 
 restartButton.addEventListener('click', restartQuiz)
 
-
-
 beginButton.addEventListener('click', beginGame);
+
+/**
+ * 
+ */
 nextButton.addEventListener('click', () => {
     currentIndex++
     nextQuestion()
@@ -29,19 +33,22 @@ nextButton.addEventListener('click', () => {
 
 
 
-
+/**
+ * 
+ */
 function beginGame() {
-    console.log('start')
     beginButton.classList.add('hide')
     random = questions.sort(() => Math.random() - 0.5)
     currentIndex = 0
     qstnContainer.classList.remove('hide')
     nextQuestion()
     numberOfQuestionMainContainer.classList.remove('hide')
-
-
 }
 
+
+/**
+ * 
+ */
 function nextQuestion() {
     resetQuestions()
     if (currentIndex >= 10) {
@@ -51,10 +58,10 @@ function nextQuestion() {
     numberOfQuestion++
     numberOfQuestionContainer.innerText = numberOfQuestion
     }
-    
-
-
 }
+
+
+
 
 function showResults() {
     let scoreContainer = document.getElementById('score-container')
@@ -113,14 +120,10 @@ function answerSelect(e) {
     
 
 
-
-
-
 function setStatusClass(element, correct) {
     clearStatusClass(element)
     if (correct) {
         element.classList.add('correct')
-        console.log('score', score)
     } else {
         element.classList.add('wrong')
     }
@@ -139,10 +142,6 @@ function restartQuiz () {
     scoreElement.innerText = score;
     scoreContainer.classList.add('hide')
     beginButton.classList.remove('hide')
-  
-
-    
-    
     resetQuestions();
 }
 
@@ -155,7 +154,9 @@ function restartQuiz () {
 
 
 
-
+/**
+ * 
+ */
 let questions = [
     {
         question: "What is Manchester United's nickname?",
