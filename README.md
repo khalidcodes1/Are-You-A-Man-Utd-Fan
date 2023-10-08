@@ -59,9 +59,12 @@ The flowchart represents the logic of the application:
 + ##### Solved bugs
     1. The next button to move on to the next question was not working
         *Solutions:* I added a function that handled the click event for the next button that would increment the current index by one and also call the show question as well.
-        ```nextButton.addEventListener('click', () => {
+        ```js
+        nextButton.addEventListener('click', () => {
     currentIndex++;
-    nextQuestion();```
+    nextQuestion();
+});
+        ```
 + ##### Unsolved bugs
     - None.
 

@@ -1,4 +1,4 @@
-/*jshint esversion:8 */ 
+
 
 const beginButton = document.getElementById('begin-btn');
 const nextButton = document.getElementById('next-btn');
