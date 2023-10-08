@@ -94,7 +94,7 @@ In order to confirm the correct functionality and responsiveness:
 
 + ##### Accessibility and performance 
     - Using lighthouse in devtools I confirmed that the website is performing well, accessible and colors and fonts chosen are readable.
-    ![Lighthouse results](lighthouse_results.png)   
+    ![Lighthouse results](lighthouse.png)   
 
 ## Deployment
 
