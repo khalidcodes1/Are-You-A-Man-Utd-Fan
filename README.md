@@ -33,3 +33,9 @@ The site can be accessed by this [link](https://khalidcodes1.github.io/Are-You-A
     - It has 4 buttons that hold the answer choices for the current question;
     ![Question and Answer page](documentation/q&a_page.png)
 
++ ### Results Page
+      - It has a button that allows the user to restart the quiz and play again;
+
+    - It displays the users score for the quiz as well;
+     ![Result page](documentation/results_page.png)
+
