@@ -5,71 +5,72 @@ const nextButton = document.getElementById('next-btn');
 const qstnContainer = document.getElementById('qstn-container');
 const qstnElement = document.getElementById('question');
 const answerBtnElement = document.getElementById('answer-btns');
-const qstnNumber = document.getElementById('number-of-qtsn-main-container')
-const endScore = document.getElementById('score')
+const qstnNumber = document.getElementById('number-of-qtsn-main-container');
+const endScore = document.getElementById('score');
+const numberOfQuestionMainContainer = document.getElementById('number-of-qtsn-main-container');
+const scoreContainer = document.getElementById('score-container');
+const scoreElement = document.getElementById('score');
+const restartButton = document.getElementById('restart-button');
 let random, currentIndex;
-let  numberOfQuestion = 0
-let score = 0 
-const numberOfQuestionMainContainer = document.getElementById('number-of-qtsn-main-container')
-const scoreContainer = document.getElementById('score-container')
-const scoreElement = document.getElementById('score')
-const restartButton = document.getElementById('restart-button')
+let  numberOfQuestion = 0;
+let score = 0 ;
 
 
-const numberOfQuestionContainer = document.getElementById('number-of-qstn')
-
-restartButton.addEventListener('click', restartQuiz)
-
+const numberOfQuestionContainer = document.getElementById('number-of-qstn');
+// Click event listener for the restart button
+restartButton.addEventListener('click', restartQuiz);
+// Click event listener for the begin button
 beginButton.addEventListener('click', beginGame);
 
 /**
- * 
+ * Function to handle the next button click event
  */
 nextButton.addEventListener('click', () => {
-    currentIndex++
-    nextQuestion()
-})
+    currentIndex++;
+    nextQuestion();
+});
 
 
 
 
 /**
- * 
+ * Function to start the quiz
  */
 function beginGame() {
-    beginButton.classList.add('hide')
-    random = questions.sort(() => Math.random() - 0.5)
-    currentIndex = 0
-    qstnContainer.classList.remove('hide')
-    nextQuestion()
-    numberOfQuestionMainContainer.classList.remove('hide')
+    beginButton.classList.add('hide');
+    random = questions.sort(() => Math.random() - 0.5);
+    currentIndex = 0;
+    qstnContainer.classList.remove('hide');
+    nextQuestion();
+    numberOfQuestionMainContainer.classList.remove('hide');
 }
 
 
 /**
- * 
+ * Function that displays the next question on the quiz
  */
 function nextQuestion() {
-    resetQuestions()
+    resetQuestions();
     if (currentIndex >= 10) {
-        showResults()
+        showResults();
     } else {
-        showQuestion(random[currentIndex])
-    numberOfQuestion++
-    numberOfQuestionContainer.innerText = numberOfQuestion
+        showQuestion(random[currentIndex]);
+    numberOfQuestion++;
+    numberOfQuestionContainer.innerText = numberOfQuestion;
     }
 }
 
 
-
-
+/**
+ * Function that displays the score of the user at the end of the quiz
+ */
 function showResults() {
-    let scoreContainer = document.getElementById('score-container')
-        scoreContainer.classList.remove('hide')
-        nextButton.classList.add('hide')
-        qstnContainer.classList.add('hide')
-        nextButton.classList.add('hide')
-        qstnNumber.classList.add('hide')
+    let scoreContainer = document.getElementById('score-container');
+        scoreContainer.classList.remove('hide');
+        nextButton.classList.add('hide');
+        qstnContainer.classList.add('hide');
+        nextButton.classList.add('hide');
+        qstnNumber.classList.add('hide');
         endScore.innerText = score;
 
 
@@ -78,70 +79,84 @@ function showResults() {
 
     
 }
- 
+ /**
+ * Function that displays a questions and it's available answer choices
+ */
 function showQuestion(question) {
-    nextButton.classList.remove('hide')
-    qstnElement.innerText = question.question
+    nextButton.classList.remove('hide');
+    qstnElement.innerText = question.question;
     question.answers.forEach(answer => {
-        let button = document.createElement('button')
-        button.innerText = answer.text
-        button.classList.add('btn')
+        let button = document.createElement('button');
+        button.innerText = answer.text;
+        button.classList.add('btn');
         if (answer.correct) {
-            button.dataset.correct = answer.correct
+            button.dataset.correct = answer.correct;
         }
-        button.addEventListener('click', answerSelect)
+        button.addEventListener('click', answerSelect);
         answerBtnElement.appendChild(button);
-    })
+    });
 
 }
-
+/**
+ * Function that removes answer choice buttons
+ */
 function resetQuestions() {
     
     while (answerBtnElement.firstChild) {
         answerBtnElement.removeChild
-        (answerBtnElement.firstChild)
+        (answerBtnElement.firstChild);
     }
 
 }
 
-
+/**
+ * Function that handles the selection of an answer choice
+ */
 function answerSelect(e) {
-    let selected = e.target
-    let correct = selected.dataset.correct
+    let selected = e.target;
+    let correct = selected.dataset.correct;
     if (correct) {
-        score++
+        score++;
     }
+    // Applies styling to show whether answer selected was right or wrong
     Array.from(answerBtnElement.children).forEach(button => {
-        setStatusClass(button, button.dataset.correct)
-        button.removeEventListener('click', answerSelect)
-    })
+        setStatusClass(button, button.dataset.correct);
+        button.removeEventListener('click', answerSelect);
+    });
 
 }
     
 
-
+/**
+ * Function that sets the CSS class for answer buttons based on correctness
+ */
 function setStatusClass(element, correct) {
-    clearStatusClass(element)
+    clearStatusClass(element);
     if (correct) {
-        element.classList.add('correct')
+        element.classList.add('correct');
     } else {
-        element.classList.add('wrong')
+        element.classList.add('wrong');
     }
 }
 
+/**
+ * Function that clears the CSS classes for answer buttons
+ */
 function clearStatusClass(element) {
-    element.classList.remove('correct')
-    element.classList.remove('wrong')
+    element.classList.remove('correct');
+    element.classList.remove('wrong');
 }
-
+/**
+ * Function to restart the quiz
+ */
 function restartQuiz () {
-    currentIndex = 0
-    score = 0 
-    numberOfQuestion = 0
+    currentIndex = 0;
+    score = 0;
+    numberOfQuestion = 0;
     numberOfQuestionContainer.innerText = numberOfQuestion;
     scoreElement.innerText = score;
-    scoreContainer.classList.add('hide')
-    beginButton.classList.remove('hide')
+    scoreContainer.classList.add('hide');
+    beginButton.classList.remove('hide');
     resetQuestions();
 }
 
@@ -155,7 +170,7 @@ function restartQuiz () {
 
 
 /**
- * 
+ * Array of quiz questions and answers.
  */
 let questions = [
     {
