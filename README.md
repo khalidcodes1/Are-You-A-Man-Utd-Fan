@@ -55,7 +55,7 @@ The flowchart represents the logic of the application:
 - [CSS roots](https://developer.mozilla.org/en-US/docs/Web/CSS/:root) was used to declaring global CSS variables and apply them throughout the project. 
 - [Git](https://git-scm.com/) was used for the version control of the website.
 - [GitHub](https://github.com/) was used to host the code of the website.
-
+### Bugs
 + ##### Solved bugs
     1. The next button to move on to the next question was not working
         *Solutions:* I added a function that handled the click event for the next button that would increment the current index by one and also call the show question as well.
