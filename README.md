@@ -56,6 +56,16 @@ The flowchart represents the logic of the application:
 - [Git](https://git-scm.com/) was used for the version control of the website.
 - [GitHub](https://github.com/) was used to host the code of the website.
 
++ ##### Solved bugs
+    1. The next button to move on to the next question was not working
+        *Solutions:* I added a function that handled the click event for the next button that would increment the current index by one and also call the show question as well.
+        ```nextButton.addEventListener('click', () => {
+    currentIndex++;
+    nextQuestion();```
++ ##### Unsolved bugs
+    - None.
+
+
 ## Testing
 
 In order to confirm the correct functionality and responsiveness:
@@ -76,3 +86,42 @@ In order to confirm the correct functionality and responsiveness:
 
 + ##### CSS
     - No errors or warnings were found when passing through the official [W3C (Jigsaw)](https://jigsaw.w3.org/css-validator/#validate_by_uri)    
+    ![CSS validator](documentation/w3_validator_css.png)
+
++ ##### JS
+    - No errors or warnings were found when passing through the official [JSHint](https://jshint.com/)  
+      ![JS validator](jshint_validator.png)
+
++ ##### Accessibility and performance 
+    - Using lighthouse in devtools I confirmed that the website is performing well, accessible and colors and fonts chosen are readable.
+    ![Lighthouse results](lighthouse_results.png)   
+
+## Deployment
+
+- The site was deployed to GitHub pages. The steps to deploy are as follows: 
+  - In the [GitHub repository](https://github.com/iuliiakonovalova.github.io/flash_cards/), navigate to the Settings tab 
+  - From the source section drop-down menu, select the **Main** Branch, then click "Save".
+  - The page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
+
+  The live link can be found [here](https://khalidcodes1.github.io/Are-You-A-Man-Utd-Fan/)
+
+    ## Local Deployment
+
+In order to make a local copy of this project, you can clone it.
+In your IDE Terminal, type the following command to clone my repository:
+
+- `git clone https://github.com/khalidcodes1/Are-You-A-Man-Utd-Fan.git`     
+
+
+## Credits
+
++ #### Content
+
+  - My younger brother who is an even bigger Man Utd fan than myself for helping come up with the questions to the quiz.
+
+
+## Acknowledgements
+
+[Iuliia Konovalova](https://github.com/IuliiaKonovalova)
+
+I am enormously thankful to my mentor Juliia for her guidance and valuable advice!  
