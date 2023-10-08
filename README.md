@@ -90,11 +90,11 @@ In order to confirm the correct functionality and responsiveness:
 
 + ##### JS
     - No errors or warnings were found when passing through the official [JSHint](https://jshint.com/)  
-      ![JS validator](jshint_validator.png)
+      ![JS validator](/documentation/jshint_validator.png)
 
 + ##### Accessibility and performance 
     - Using lighthouse in devtools I confirmed that the website is performing well, accessible and colors and fonts chosen are readable.
-    ![Lighthouse results](lighthouse.png)   
+    ![Lighthouse results](documentation/lighthouse.png)   
 
 ## Deployment
 
