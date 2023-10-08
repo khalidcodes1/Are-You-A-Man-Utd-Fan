@@ -39,3 +39,40 @@ The site can be accessed by this [link](https://khalidcodes1.github.io/Are-You-A
     - It displays the users score for the quiz as well;
      ![Result page](documentation/results_page.png)
 
+
+## Flowchart
+
+The flowchart represents the logic of the application:
+
+  ![Logic of appliaction](documentation/workflow.png)
+
+
+## Technologies Used
+
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) was used as the foundation of the site.
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/css) - was used to add the styles and layout of the site.
+- [CSS Flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox) - was used to arrange items simmetrically on the pages.
+- [CSS roots](https://developer.mozilla.org/en-US/docs/Web/CSS/:root) was used to declaring global CSS variables and apply them throughout the project. 
+- [Git](https://git-scm.com/) was used for the version control of the website.
+- [GitHub](https://github.com/) was used to host the code of the website.
+
+## Testing
+
+In order to confirm the correct functionality and responsiveness:
+
++ The website was tested on the following browsers:
+
+    - Chrome
+
+    - FireFox
+
+
++ The website was checked by devtools implemented in Firefox and Chrome browsers.
+
+## Validator testing
++ ##### HTML
+    - No errors or warnings were found when passing through the official [W3C](https://validator.w3.org/) validator.
+    ![HTML validator](documentation/w3_validator.png)
+
++ ##### CSS
+    - No errors or warnings were found when passing through the official [W3C (Jigsaw)](https://jigsaw.w3.org/css-validator/#validate_by_uri)    
